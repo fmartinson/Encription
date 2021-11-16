@@ -1,1 +1,81 @@
-Encryptions 
+//North Dakota State University
+//CSCI717 Software Construction
+//Francis Martinson
+//October  2021
+
+import java.util.*;
+//This is the program of Caesar Cipher. This contains both the encryption of the plain text to cipher text and vice versa.
+
+public class EncryptionMachine 
+{
+    public static void main(String args[]) 
+    {
+    	//Scanner is used to take the input from the user for the text which is required to be encrypted.
+        Scanner input1 = new Scanner(System.in);
+        
+        System.out.println("-------------ENCRYPTION INITIATED-------------\r\n"+"Welcome to the CSCI717 Encryption Machine Construction\r\n" +"My Name is Francis Martinson\r\n"+"The program lets you encrypt a message\r\n"
+        		+ "with a key for your recipient to decrypt!\r\n\r\n");
+        
+        System.out.println("Input the  message to be ecrypted : ");
+        
+        String text = input1.nextLine();
+        
+        //The key here is the value by which the program will shift the letters. If key is 3, then the program will shift the values by 3 letters.
+        System.out.println("Enter Key: ");
+        
+        int key = input1.nextInt();
+        String encryptedtext = "";
+        System.out.println(encryptedtext);
+        
+        //Taking letter as a character as it's going to be single letter.
+        char letter;
+        
+        //Using for loop to iterate through the string of input text.
+        for(int i=0; i < text.length();i++) 
+        {
+             // Shifting one character at a time
+            letter = text.charAt(i);
+            
+            // For the letters lying between a-z in lower case.
+            if(letter >= 'a' && letter <= 'z') 
+            {
+             // Shift letter
+             letter = (char) (letter + key);
+             // For the shift letter greater than 'z'
+             if(letter > 'z') {
+                // Re-shifting the code to the start position 
+                letter = (char) (letter+'a'-'z'-1);
+             }
+             encryptedtext = encryptedtext + letter;
+            }
+            
+            // For the letters lying between A-Z in upper case.
+            else if(letter >= 'A' && letter <= 'Z') {
+            	
+             // If condition is fulfilled, so shift the letters by given key value.
+             letter = (char) (letter + key);    
+                
+             // For the shift letter greater than 'Z'
+             if(letter > 'Z') {
+            	 
+                 //Re-shifting to the start position i.e A. 
+                 letter = (char) (letter+'A'-'Z'-1);
+             }
+             encryptedtext = encryptedtext + letter;
+            }
+            else {
+             encryptedtext = encryptedtext + letter;   
+            }
+        
+    }
+        System.out.println(" encryptedtext : " + encryptedtext);
+        
+
+    }
+
+
+     }
+    
+
+	
+	
